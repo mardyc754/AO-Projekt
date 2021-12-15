@@ -1,0 +1,14 @@
+clear;
+clc;
+im=mbinarize(imread('t1.jpg'));
+[letters,n]=separate_lines_letters(im);
+ns=sum(n);
+p1=1;
+for i=1:size(n)
+    prop=letters(i);
+    for j=1:n(i)
+        subplot(5,floor(ns/5),pi);pi=p1+1;
+   
+        imshow(prop(j).Image);
+    end
+end
