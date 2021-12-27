@@ -2,8 +2,8 @@ clear;
 clc;
 im=mbinarize(imread('lern.jpg'));
 leters=separate_lines_letters(im); 
-n=size(leters);
-n=n(2);
+% n=size(leters);
+% n=n(2);
 [in,out]=net_data_to_train();
 
 % subplot(1,2,1);
