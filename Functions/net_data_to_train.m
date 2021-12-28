@@ -9,7 +9,7 @@ function [in,out] = net_data_to_train()
     leters{1,70}=a;
     
     for i=1:n
-        leters{1,i}=img_resize(leters{1,i});
+        leters{1,i}=img2array_plus_wsp(leters{1,i});
     end
     in=cell2mat(leters);
     a=eye(27);
@@ -19,3 +19,4 @@ function [in,out] = net_data_to_train()
     c(13,1)=1;
     a=[a(:,1:9),b,c,a(:,10:11),b,a(:,12:end)];
     out=repmat(a,[1,n/30]);
+end
