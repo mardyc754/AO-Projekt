@@ -13,12 +13,13 @@ leters=cellfun(@array_to_letter ,leters,'UniformOutput',false);
 leters=cell2mat(leters);
 
 text=char(leters);
+text=strrep(text,'.l','i');
 disp(text);
 
-text2='lorem..psumdolors..tamet,consecteturad..p..sc..ngel..t.et..amtemporfermentumrhoncus...nterdumetmalesuadafamesacante..psumpr..m..s.';
-text2=double(text2);
-
-p=arrayfun(@(a,b)a==b,leters,text2);
-s=sum(p);
-disp(char(text2.*p));
-disp(char(text2));
+% text2='lorem.lpsumdolors.ltamet,consecteturad.lp.lsc.lngel.lt.et.lamtemporfermentumrhoncus..lnterdumetmalesuadafamesacante.lpsumpr.lm.ls.';
+% text2=double(text2);
+% 
+% p=arrayfun(@(a,b)a==b,leters,text2);
+% s=sum(p);
+% disp(char(text2.*p));
+% disp(char(text2));
