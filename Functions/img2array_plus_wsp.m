@@ -19,7 +19,4 @@ for j = 1:length(fun)
 end
 hp=size(letter);
 hp=hp(1)/hp(2);
-wsp_ar=[wsp_ar;hp;1/hp];
-
-% wsp_ar = imresize(letter,[10,8]);
-% wsp_ar = reshape(wsp_ar,[10*8,1]);
+wsp_ar=[wsp_ar;M;hp;1/hp];

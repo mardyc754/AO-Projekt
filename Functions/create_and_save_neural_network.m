@@ -1,4 +1,4 @@
-function nn = create_and_save_neural_network
+% function nn = create_and_save_neural_network
 [in,out]=net_data_to_train();
 
 nn=feedforwardnet(100);
@@ -10,4 +10,4 @@ nn.trainParam.mc = 0.95;
 nn=train(nn,in,out);
 clear in out;
 save data/data;
-end
+% end
