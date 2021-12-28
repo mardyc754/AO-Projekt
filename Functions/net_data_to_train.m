@@ -1,7 +1,13 @@
 function [in,out] = net_data_to_train()
     %works only witch original file lern.jpg
     im=mbinarize(imread('lern.jpg'));
-    leters=separate_lines_letters(im); 
+
+    lines=separate_lines(im);
+    leters={};
+    for l=lines
+        leters=[leters,separate_letters(l{1})];
+    end
+    
     n=size(leters);
     n=n(2);
     a=leters{1,69};

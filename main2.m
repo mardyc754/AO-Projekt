@@ -14,6 +14,7 @@ leters=cell2mat(leters);
 
 text=char(leters);
 text=strrep(text,'.l','i');
+text=strrep(text,'j.','j');
 disp(text);
 
 % text2='lorem.lpsumdolors.ltamet,consecteturad.lp.lsc.lngel.lt.et.lamtemporfermentumrhoncus..lnterdumetmalesuadafamesacante.lpsumpr.lm.ls.';
