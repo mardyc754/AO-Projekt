@@ -1,6 +1,10 @@
-function text = im2text( im )
+function text = im2text(im)
+    load data/data.mat;
+    addpath('Functions/');
+    addpath('Functions/wspolczynniki/');
     text='';
-    im=mbinarize(imread('t1.jpg'));
+    
+    im=mbinarize(imread(im));
     lines=separate_lines(im);
     lines=cellfun(@separate_words,lines,'UniformOutput',false);
     for words=lines
@@ -17,6 +21,4 @@ function text = im2text( im )
         end
         text= string(text);
     end
-    disp(text);
 end
-

@@ -29,9 +29,10 @@ classdef gui < matlab.apps.AppBase
 
         % Button pushed function: WykryjtekstButton
         function WykryjtekstButtonPushed(app, event)
+            text = im2text(app.Image.ImageSource);
             app.ZapiszButton.Enable = true;
             app.KopiujButton.Enable = true;
-            app.WynikTextArea.Value = 'abc'; % testowe
+            app.WynikTextArea.Value = text;
             % app.WynikTextArea.Value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'; % testowe
         end
 
