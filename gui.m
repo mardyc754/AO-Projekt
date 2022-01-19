@@ -29,7 +29,6 @@ classdef gui < matlab.apps.AppBase
 
         % Button pushed function: WykryjtekstButton
         function WykryjtekstButtonPushed(app, event)
-            
             text = im2text(app.Image.ImageSource);
             app.ZapiszButton.Enable = true;
             app.KopiujButton.Enable = true;
@@ -63,62 +62,62 @@ classdef gui < matlab.apps.AppBase
 
             % Create WykrywanietekstuUIFigure and hide until all components are created
             app.WykrywanietekstuUIFigure = uifigure('Visible', 'off');
-            app.WykrywanietekstuUIFigure.Position = [100 100 776 564];
+            app.WykrywanietekstuUIFigure.Position = [100 100 1136 592];
             app.WykrywanietekstuUIFigure.Name = 'Wykrywanie tekstu';
 
             % Create GridLayout
             app.GridLayout = uigridlayout(app.WykrywanietekstuUIFigure);
-            app.GridLayout.ColumnWidth = {'1x', '5x', '3x', '5x', '1x'};
-            app.GridLayout.RowHeight = {'1x', '7x', '0.5x', '1x', '1x', '0.7x', '0.7x', '0.5x'};
+            app.GridLayout.ColumnWidth = {'1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '0x'};
+            app.GridLayout.RowHeight = {'1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x', '1x'};
 
             % Create WczytajobrazButton
             app.WczytajobrazButton = uibutton(app.GridLayout, 'push');
             app.WczytajobrazButton.ButtonPushedFcn = createCallbackFcn(app, @LoadImageButtonPushed, true);
-            app.WczytajobrazButton.Layout.Row = 4;
-            app.WczytajobrazButton.Layout.Column = 2;
+            app.WczytajobrazButton.Layout.Row = 10;
+            app.WczytajobrazButton.Layout.Column = [4 7];
             app.WczytajobrazButton.Text = 'Wczytaj obraz';
 
             % Create ZapiszButton
             app.ZapiszButton = uibutton(app.GridLayout, 'push');
             app.ZapiszButton.ButtonPushedFcn = createCallbackFcn(app, @ZapiszButtonPushed, true);
             app.ZapiszButton.Enable = 'off';
-            app.ZapiszButton.Layout.Row = 7;
-            app.ZapiszButton.Layout.Column = 4;
+            app.ZapiszButton.Layout.Row = 11;
+            app.ZapiszButton.Layout.Column = [11 14];
             app.ZapiszButton.Text = 'Zapisz';
 
             % Create Image
             app.Image = uiimage(app.GridLayout);
-            app.Image.Layout.Row = 2;
-            app.Image.Layout.Column = [2 4];
+            app.Image.Layout.Row = [2 9];
+            app.Image.Layout.Column = [2 9];
 
             % Create WykryjtekstButton
             app.WykryjtekstButton = uibutton(app.GridLayout, 'push');
             app.WykryjtekstButton.ButtonPushedFcn = createCallbackFcn(app, @WykryjtekstButtonPushed, true);
             app.WykryjtekstButton.Enable = 'off';
-            app.WykryjtekstButton.Layout.Row = 4;
-            app.WykryjtekstButton.Layout.Column = 4;
+            app.WykryjtekstButton.Layout.Row = 11;
+            app.WykryjtekstButton.Layout.Column = [4 7];
             app.WykryjtekstButton.Text = 'Wykryj tekst';
 
             % Create KopiujButton
             app.KopiujButton = uibutton(app.GridLayout, 'push');
             app.KopiujButton.ButtonPushedFcn = createCallbackFcn(app, @KopiujButtonPushed, true);
             app.KopiujButton.Enable = 'off';
-            app.KopiujButton.Layout.Row = 6;
-            app.KopiujButton.Layout.Column = 4;
+            app.KopiujButton.Layout.Row = 10;
+            app.KopiujButton.Layout.Column = [11 14];
             app.KopiujButton.Text = 'Kopiuj';
 
             % Create WynikTextAreaLabel
             app.WynikTextAreaLabel = uilabel(app.GridLayout);
             app.WynikTextAreaLabel.HorizontalAlignment = 'right';
-            app.WynikTextAreaLabel.Layout.Row = 6;
-            app.WynikTextAreaLabel.Layout.Column = 1;
+            app.WynikTextAreaLabel.Layout.Row = 2;
+            app.WynikTextAreaLabel.Layout.Column = 10;
             app.WynikTextAreaLabel.Text = 'Wynik';
 
             % Create WynikTextArea
             app.WynikTextArea = uitextarea(app.GridLayout);
             app.WynikTextArea.Editable = 'off';
-            app.WynikTextArea.Layout.Row = [6 7];
-            app.WynikTextArea.Layout.Column = [2 3];
+            app.WynikTextArea.Layout.Row = [2 9];
+            app.WynikTextArea.Layout.Column = [11 14];
 
             % Show the figure after all components are created
             app.WykrywanietekstuUIFigure.Visible = 'on';
