@@ -1,10 +1,10 @@
 function text = im2text(im)
-    load data/data.mat;
+    load data/data_n.mat;
     addpath('Functions/');
     addpath('Functions/wspolczynniki/');
     text='';
     
-    im=mbinarize(imread(im));
+    im=mbinarize(im); %imread(im));
     lines=separate_lines(im);
     lines=cellfun(@separate_words,lines,'UniformOutput',false);
 
