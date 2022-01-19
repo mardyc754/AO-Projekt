@@ -12,8 +12,13 @@ classdef gui < matlab.apps.AppBase
         Image                     matlab.ui.control.Image
         ZapiszButton              matlab.ui.control.Button
         WczytajobrazButton        matlab.ui.control.Button
+    end
+
+    
+    properties (Access = private)
         im % store the loaded image
     end
+    
 
     % Callbacks that handle component events
     methods (Access = private)
@@ -33,7 +38,7 @@ classdef gui < matlab.apps.AppBase
 
         % Button pushed function: WykryjtekstButton
         function WykryjtekstButtonPushed(app, event)
-            text = im2text(app.im);% app.Image.ImageSource);
+            text = im2text(app.im);
             app.ZapiszButton.Enable = true;
             app.KopiujButton.Enable = true;
             app.WynikTextArea.Value = text;
@@ -59,8 +64,15 @@ classdef gui < matlab.apps.AppBase
 
         % Button pushed function: PrzytnijobrazButton
         function PrzytnijButtonPushed(app, event)
-            app.im=imcrop(app.im);
+            im_copy=app.im;
+            
+            cut_image=imcrop(im_copy);
+            if isempty(cut_image) == false
+              app.im=cut_image;  
+            end
+            
             app.Image.ImageSource=app.im;
+            
             close gcf
         end
     end
