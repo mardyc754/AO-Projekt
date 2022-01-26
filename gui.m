@@ -47,8 +47,19 @@ classdef gui < matlab.apps.AppBase
         % Button pushed function: KopiujButton
         function KopiujButtonPushed(app, event)
             if(app.WynikTextArea.Value ~= "")
-                clipboard('copy', string(app.WynikTextArea.Value))
+                try
+                    clipboard('copy', string(app.WynikTextArea.Value))
+                    message = 'Pomyślnie skopiowano tekst!';
+                    uialert(app.WykrywanietekstuUIFigure, message, 'Kopiowanie tekstu', 'Icon', 'success');
+                catch err
+                    message = 'Błąd przy kopiowaniu tekstu';
+                    uialert(app.WykrywanietekstuUIFigure, message, 'Kopiowanie tekstu');
+                end
+            else
+                message = 'Tekst nie został skopiowany, ponieważ na obrazie nie wykryto tekstu';
+                uialert(app.WykrywanietekstuUIFigure, message, 'Kopiowanie tekstu', 'Icon', 'info');
             end
+            
         end
 
         % Button pushed function: ZapiszButton
