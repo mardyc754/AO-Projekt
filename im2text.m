@@ -21,7 +21,14 @@ function text = im2text(im)
             l=cell2mat(l);
             l=char(l);
             l=strrep(l,'.l','i');
+            l=strrep(l,'l.','i');
             l=strrep(l,'j.','j');
+            l=strrep(l,'.j','j');
+            l=strrep(l,'__','=');
+            l=strrep(l,'..',':');
+            l=strrep(l,',.',';');
+            l=strrep(l,'.,',';');
+            l=strrep(l,'?.','?');
             text= sprintf('%s%s ',text,l);
             i = i+1;
             waitbar(0.5, d, 'Wykrywanie tekstu, proszę czekać...');
