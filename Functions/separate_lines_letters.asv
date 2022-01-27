@@ -1,0 +1,48 @@
+function leters = separate_lines_letters(im)
+    h=size(im);
+    h=h(1);
+%     n=max(bwlabel(im),[],'all');
+
+    spliter=1;
+    spliter0=1;
+%     split_list=[];
+%     line=1;
+    while spliter<h
+        while spliter<h
+            if max(im(spliter,:)) == 1
+                break;
+            end
+            spliter=spliter+1;
+        end
+
+        while spliter<h
+            if max(im(spliter,:)) == 0
+                break;
+            end
+            spliter=spliter+1;
+        end
+        if spliter~=h
+            im2=im(spliter0:spliter,:);
+            l=bwlabel(im2);
+            n=max(l,[],'all');
+            prop= regionprops(im2,'all');
+            for i=1:n
+                leters
+            end
+%             split_list(line)=spliter;
+%             line=line+1;
+            spliter0=spliter;
+        end
+    end
+%     n=size(split_list);
+%     n=n(2);
+%     leters_n=zeros(n-1);
+%     leters=regionprops.empty(n-1);
+%     n=size(split_list);
+%     for i=1:n
+%         im2=im(split_list(i):split_list(i+1),:);
+%         l=bwlabel(im2);
+%         leters_n(i)=max(l,[],'all');
+%         leters(i)= regionprops(im2,'all');
+%     end
+end
